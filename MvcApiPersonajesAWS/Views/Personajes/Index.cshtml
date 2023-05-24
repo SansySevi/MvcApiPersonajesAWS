@@ -1,0 +1,45 @@
+﻿<h1>Vistas Personajes Ajax</h1>
+
+ @section Scripts {
+    <script>
+        $(document).ready(function() {
+            $("#botoncargar").click(function() {
+                var url = 
+                    "https://54.166.93.148/api/personajes";
+                $.ajax({
+                    url: url,
+                    method: "GET",
+                    success: function(data) {
+                        var html = "";
+                        $.each(data, function(index, personaje){
+                            html += "<tr>";
+                            html += "<td>" + personaje.IdPersonaje + "</td>";
+                            html += "<td>" + personaje.Nombre + "</td>";
+                            html += "<td><img src='" + personaje.Imagen + "' /></td>";
+                            html += "</tr>";
+                            $("#tablapersonajes tbody").html(html);
+                        })
+                    }
+                });
+            })
+        });
+    </script>
+}
+
+
+ <button id="botoncargar" class="btn btn-danger">
+    Cargar Personajes
+</button>
+ 
+<table id="tablapersonajes" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Imagen</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+
