@@ -4,8 +4,7 @@
     <script>
         $(document).ready(function() {
             $("#botoncargar").click(function() {
-                var url = 
-                    "https://54.166.93.148/api/personajes";
+                var url =  "https://18.212.24.61/api/personajes";
                 $.ajax({
                     url: url,
                     method: "GET",
@@ -13,9 +12,9 @@
                         var html = "";
                         $.each(data, function(index, personaje){
                             html += "<tr>";
-                            html += "<td>" + personaje.IdPersonaje + "</td>";
-                            html += "<td>" + personaje.Nombre + "</td>";
-                            html += "<td><img src='" + personaje.Imagen + "' /></td>";
+                            html += "<td>" + personaje.idPersonaje + "</td>";
+                            html += "<td>" + personaje.nombre + "</td>";
+                            html += "<td><img src='" + personaje.imagen + "' style='height:150px' /></td>";
                             html += "</tr>";
                             $("#tablapersonajes tbody").html(html);
                         })
@@ -30,6 +29,7 @@
  <button id="botoncargar" class="btn btn-danger">
     Cargar Personajes
 </button>
+<br/>
  
 <table id="tablapersonajes" class="table table-bordered">
         <thead>
