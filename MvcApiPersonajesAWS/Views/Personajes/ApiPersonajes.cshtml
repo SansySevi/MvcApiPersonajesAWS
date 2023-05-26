@@ -33,7 +33,8 @@
                 @Html.DisplayFor(modelItem => item.Nombre)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Imagen)
+                <img src="@Html.DisplayFor(modelItem => item.Imagen)" />
+                
             </td>
             @*<td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
